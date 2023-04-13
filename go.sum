@@ -16,6 +16,10 @@ github.com/code-game-project/cli-utils v0.0.0-20230413092959-da37a2ac1c80 h1:7gw
 github.com/code-game-project/cli-utils v0.0.0-20230413092959-da37a2ac1c80/go.mod h1:9g5807H7BEF7Y20kY6p0gHq95y3a/MRbXmfv08LBs88=
 github.com/code-game-project/cli-utils v0.0.0-20230413135730-becfad3fdd3e h1:bF3Svpy2w9tVX0erc7fo8/0MEEEn8OWhQ774+xiJNM0=
 github.com/code-game-project/cli-utils v0.0.0-20230413135730-becfad3fdd3e/go.mod h1:9g5807H7BEF7Y20kY6p0gHq95y3a/MRbXmfv08LBs88=
+github.com/code-game-project/cli-utils v0.0.0-20230413163251-b2f1f386fc66 h1:PtZjf/42js6FuKWArhsJqAcJAxY0lk7OJuxDyG6BOXs=
+github.com/code-game-project/cli-utils v0.0.0-20230413163251-b2f1f386fc66/go.mod h1:sNpO4PN44Yp8VSIg35V+KUY3ML+qdxjI8Zye6UO1GTE=
+github.com/code-game-project/cli-utils v0.0.0-20230413165132-133f4bcc43c4 h1:mHQMdeyQP5b9GzPyjS2fopAs/le5GCgauA6r3tY5tvY=
+github.com/code-game-project/cli-utils v0.0.0-20230413165132-133f4bcc43c4/go.mod h1:sNpO4PN44Yp8VSIg35V+KUY3ML+qdxjI8Zye6UO1GTE=
 github.com/creack/pty v1.1.17 h1:QeVUsEDNrLBW4tMgZHvxy18sKtr6VI492kBhUfhDJNI=
 github.com/creack/pty v1.1.17/go.mod h1:MOBLtS5ELjhRRrroQr9kyvTxUAFNvYEK993ew/Vr4O4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
