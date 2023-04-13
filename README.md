@@ -1,5 +1,6 @@
 # cli-module
 
+A Go package for developing [CodeGame CLI](https://github.com/code-game-project/codegame-cli) language modules.
 
 ## License
 
