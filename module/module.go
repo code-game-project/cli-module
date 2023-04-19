@@ -20,6 +20,7 @@ type Config struct {
 	Create func(data *modules.ActionCreateData) error
 
 	name            string
+	version         versions.Version
 	displayName     string
 	libraryVersions map[modules.ProjectType][]versions.Version
 }
@@ -36,12 +37,12 @@ func info(config Config) error {
 		delete(libraryVersions, "client")
 	}
 
-	applicationTypes := make([]string, 0, len(libraryVersions))
+	projectTypes := make([]string, 0, len(libraryVersions))
 	if libraryVersions["client"] != nil {
-		applicationTypes = append(applicationTypes, "client")
+		projectTypes = append(projectTypes, "client")
 	}
 	if libraryVersions["server"] != nil {
-		applicationTypes = append(applicationTypes, "server")
+		projectTypes = append(projectTypes, "server")
 	}
 
 	actions := make([]modules.Action, 0, 5)
@@ -51,16 +52,18 @@ func info(config Config) error {
 	}
 
 	return json.NewEncoder(os.Stdout).Encode(modules.ModuleInfo{
-		LibraryVersions:  libraryVersions,
-		ApplicationTypes: applicationTypes,
-		Actions:          actions,
+		Version:         config.version,
+		LibraryVersions: libraryVersions,
+		ProjectTypes:    projectTypes,
+		Actions:         actions,
 	})
 }
 
-func Run(langName, langDisplayName string, libraryVersions map[modules.ProjectType][]versions.Version, config Config, minLogSeverity feedback.Severity) {
+func Run(langName, langDisplayName string, moduleVersion versions.Version, libraryVersions map[modules.ProjectType][]versions.Version, config Config, minLogSeverity feedback.Severity) {
 	feedback.Enable(feedback.NewCLIFeedback(minLogSeverity))
 	config.name = langName
 	config.displayName = langDisplayName
+	config.version = moduleVersion
 	config.libraryVersions = libraryVersions
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "USAGE: %s <action>\n", os.Args[0])
