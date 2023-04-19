@@ -85,6 +85,8 @@ func Run(langName, langDisplayName string, moduleVersion versions.Version, libra
 				err = config.Create(data)
 			}
 		}
+	default:
+		err = errors.New("unsupported action")
 	}
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
