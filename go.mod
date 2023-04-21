@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/code-game-project/cge-parser v0.0.0-20230413142902-7f6369a29beb
-	github.com/code-game-project/cli-utils v0.0.0-20230419174401-f333dd64e02e
+	github.com/code-game-project/cli-utils v0.0.0-20230419175501-a9c6504ec787
 )
 
 require (

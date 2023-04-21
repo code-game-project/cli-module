@@ -17,7 +17,9 @@ var (
 )
 
 type Config struct {
-	Create func(data *modules.ActionCreateData) error
+	Create    func(data *modules.ActionCreateData) error
+	RunClient func(data *modules.ActionRunClientData) error
+	RunServer func(data *modules.ActionRunServerData) error
 
 	name            string
 	version         versions.Version
@@ -49,6 +51,12 @@ func info(config Config) error {
 	actions = append(actions, modules.ActionInfo)
 	if config.Create != nil {
 		actions = append(actions, modules.ActionCreate)
+	}
+	if config.RunClient != nil {
+		actions = append(actions, modules.ActionRunClient)
+	}
+	if config.RunServer != nil {
+		actions = append(actions, modules.ActionRunServer)
 	}
 
 	return json.NewEncoder(os.Stdout).Encode(modules.ModuleInfo{
@@ -84,6 +92,20 @@ func Run(langName, langDisplayName string, moduleVersion versions.Version, libra
 			} else {
 				err = config.Create(data)
 			}
+		}
+	case modules.ActionRunClient:
+		data := modules.GetRunClientData()
+		if config.RunClient == nil {
+			err = errUnsupportedAction
+		} else {
+			err = config.RunClient(data)
+		}
+	case modules.ActionRunServer:
+		data := modules.GetRunServerData()
+		if config.RunServer == nil {
+			err = errUnsupportedAction
+		} else {
+			err = config.RunServer(data)
 		}
 	default:
 		err = errors.New("unsupported action")
